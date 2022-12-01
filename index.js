@@ -15,6 +15,12 @@ const { resolve } = require("path");
 const PORT = process.env.PORT || 300;
 app.use(express.static("public"));
 
+var server = app.listen(process.env.PORT || 300, function () {
+  var host = server.address().address
+  var port = server.address().port
+  console.log('App listening at http://%s:%s', host, port)
+})
+
 app.set("view engine", "ejs");
 
 app.use(bodyParser.urlencoded({

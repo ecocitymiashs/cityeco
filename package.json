@@ -1,7 +1,7 @@
 {
   "name": "open_data",
   "version": "1.0.0",
-  "description": "",
+  "description": "Ce projet a pour but de permettre à un utilisateur qui souhaite s'installer dans une nouvelle ville de trouver une ville \"écologique\".",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -28,5 +28,6 @@
     "request": "^2.88.2",
     "swagger": "^0.0.1",
     "xlsx": "^0.18.5"
-  }
+  },
+  "devDependencies": {}
 }
