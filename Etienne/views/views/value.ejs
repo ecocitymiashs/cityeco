@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!---------------LINKS------------->
+    
+    <script src="https://kit.fontawesome.com/53as8500608.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+    <title>La bringue</title>
+</head>
+<body>
+    <div class="container glass">
+        <div class="search">
+            <form method="post" action="/covoit">
+                <input type="text" class="search-bar" placeholder="Nom ville" name="code_commune">
+                <button type="submit" class="btn "><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+        <div class="chargement">
+            <div class="flex">
+              <div class="objet">Objet: <%=objet%></div>
+              <div class="conso">Consommation totale d'énergie : <%=conso%></div>
+              <div class="covoit">Covoiturage : <%=covoit%></div>
+            </div>
+            <div class="flex">
+                <div class="immobilier">Code Insee commune : <%=immobilier%></div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
