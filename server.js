@@ -241,6 +241,3 @@ app.post('/ville-eco', function(req, response){
 
 
 
-app.listen(PORT, function(){
-	console.log('Bienvenu sur le port :', PORT);
-})
