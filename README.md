@@ -160,3 +160,6 @@ Pour améliorer notre API nous avons comme objectif de rajouter sur la carte les
 
 Bien évidemment nous pourrions améliorer notre interface utilisateur pour la rendre plus ergonomique ainsi que le temps de traitement de chaque requête.
 
+GitHub: 
+
+déploiement : https://github.com/ecocitymiashs/cityeco
