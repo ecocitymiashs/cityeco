@@ -9,11 +9,16 @@ const httprequest = require('request');
 const removeAccents = require('remove-accents-diacritics');
 //const axios = require('axios');
 
+const swaggerUi = require('swagger-ui-express'),
+swaggerDocument = require('./swagger.json');
+
 var fetch = require('node-fetch');
 const { resolve } = require("path");
 
 const PORT = process.env.PORT || 300;
 app.use(express.static("public"));
+
+
 
 var server = app.listen(process.env.PORT || 300, function () {
   var host = server.address().address
@@ -239,5 +244,10 @@ app.post('/ville-eco', function(req, response){
     })
 })
 
+app.use(
+    '/api-docs',
+    swaggerUi.serve, 
+    swaggerUi.setup(swaggerDocument)
+  );
 
 

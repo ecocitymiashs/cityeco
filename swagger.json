@@ -1,0 +1,178 @@
+{ 
+  "swagger": "2.0", 
+  "info": { 
+    "version": "1.0.0", 
+    "title": "ECOCITY", 
+    "description": "L'objectif est de créer une API qui permet de renvoyer des informations concernant une ville sélectionnée", 
+    "license": { 
+      "name": "MIT", 
+      "url": " https://opensource.org/licenses/MIT " 
+    } 
+  }, 
+  "host": "localhost:300", 
+  "basePath" : "/", 
+  "tags": [ 
+    { 
+      "name": "Users", 
+      "description": "API for users in the system"
+    } 
+  ], 
+  "schemes": ["http"], 
+  "consume": ["application/json"], 
+  "produit": ["application/json"],
+
+  "paths": {
+    "/ville-eco": {
+      "get": {
+        "tags": ["Chemin principal"],
+        "summary": "Affiche les données de la ville sélectionnée par l'utilisateur dans la barre de recherche.",
+        "responses": {
+          "200": {
+            "description": "Permet d'effectuer une recherche grâce à un formulaire pour récupérer et afficher des informations sur une ville. On affiche le code insee, le prix des maisons et des appartements anciens et neufs, le nom de la commune, la consommation énergétique annuelle ainsi que le nombre d'aires de covoiturage.",
+            "schema": {
+              "$ref": "#/definitions/ville-eco"
+            }
+          }
+        }
+      }
+    },
+    "/commentaire": {
+        "get": {
+          "tags": ["Commentaires"],
+          "summary": "Affiche les commentaires disponibles pour certaines ville.",
+          "responses": {
+            "200": {
+              "description": "Permet de voir les commentaires disponibles pour certaines ville et d'en rédiger des nouveaux. ",
+              "schema": {
+                "$ref": "#/definitions/commentaire"
+              }
+            }
+          }
+        }
+      },
+
+      "/ville-eco/:nom_commune": {
+        "get": {
+          "tags": ["Chemin principal via nom de commune"],
+          "summary": "Affiche les données de la ville sélectionnée dans l'url par l'utilisateur en format json.",
+          "responses": {
+            "200": {
+              "description": "Permet d'afficher en format json grâce à l'url le code insee, le prix des maisons et des appartements anciens et neufs, le nom de la commune, la consommation énergétique annuelle ainsi que le nombre d'aires de covoiturage.",
+              "schema": {
+                "$ref": "#/definitions/nom_commune"
+              }
+            }
+          }
+        }
+      }
+      
+}, 
+
+"definitions": {
+    "ville-eco": {
+      "required": ["codeInsee", "prix_appart_ancien", "prix_maison_ancien","prix_appart_neuf","prix_maison_neuf","consototale_energie","Covoit"],
+      "properties": {
+        "codeInsee": {
+          "type": "string",
+
+           "exemple": "34172",
+          "uniqueItems": true
+        },
+        "prix_appart_ancien": {
+          "type": "string",
+
+          "exemple": "Acheter un appartement ancien à Montpellier. Sur la totalité des ventes de logements anciens de Montpellier Méditerranée Métropole intervenues entre janvier et décembre 2020 67,0% se sont conclues sur Montpellier. Et sur cette part d'activité de la commune, 83% ont concerné des ventes d'appartements. Sur une période de 12 mois (de janvier à décembre 2020), les appartements anciens se sont échangés à un prix moyen de 3.400 € le m², la tendance étant à la hausse de 9,5% en variation annuelle. Mais, les prix diffèrent selon la taille des appartements qui se sont vendus. Les studios se sont échangés à un prix moyen proche de 3.700 € le m². Leur prix a eu tendance à s'accroître de 7,7% en variation annuelle.Le prix moyen des appartements de 2 pièces s'est établi autour de 3.600 € le m², leur évolution étant à la hausse de 10,1% sur un an. Les appartements récents ou anciens de 3 pièces se vendent aux alentours de 3.100 € au m² en moyenne, et leur prix a augmenté de 4,5% sur un an.Le prix moyen des 4 pièces ressort à environ 3.100 € du m².Quant aux grands appartements de 5 pièces ou plus, leurs prix moyens sont plutôt compris entre 3.100 € et 3.800 € au m²."
+        },
+        "prix_maison_ancien": {
+            "type": "string",
+  
+            "exemple": "Acheter une maison ancienne. Sur la commune, le nombre de maisons récentes et anciennes vendues a représenté 17% du total des transactions dans l’ancien. Sur le marché de l'ancien de Montpellier, les maisons récentes ou anciennes se sont échangées en moyenne 400.000 € entre janvier et décembre 2020, et leur prix a progressé de 4,1% sur un an. Des maisons de 4 pièces ou moins se vendent à un prix moyen de l'ordre de 330.000 €. Ce prix a eu tendance à croître de 9,6% par rapport à l'année passée. Pour les maisons de 5 pièces, le prix moyen avoisine 420.000 € sur la période et affiche une variation annuelle en hausse de 6,9% depuis un an. Les prix moyens des maisons individuelles plus grandes, de 6 pièces ou plus, s'échelonnent entre 500.000 € à 610.000 €. Et ces prix ont eu tendance à se stabiliser."
+          },
+          "prix_appart_neuf": {
+            "type": "string",
+  
+            "exemple": "Acheter un appartement neuf à Montpellier. Dans la région Occitanie, 11.742 logements neufs ont été vendus dans des programmes de promotion immobilière au cours de la période janvier 2020-décembre 2020. Au niveau de Montpellier Méditerranée Métropole, les ventes de logements neufs (appartements et maisons) réalisées à Montpellier même représentent 63,1% du marché de la métropole. Au cours des trois dernières années, sur Montpellier 2.818 logements ont été mis en chantier en moyenne par an, dont 87% en habitat collectif (incluant des logements en accession à la propriété, destinés au locatif privé ou au locatif social). Sur la commune, les appartements neufs qui ont été commercialisés représentent 98,4% des ventes totales de logements neufs. Ces appartements neufs se sont vendus en moyenne 4.500 € le m² entre janvier et décembre 2020. Leur prix a eu tendance à augmenter de 4,3% sur un an. Selon la taille de l'appartement, les prix peuvent varier. En moyenne, un appartement s'est ainsi vendu : 4.900 € le m² pour un studio. 4.700 € le m² pour un deux pièces. 4.000 € le m² pour un trois pièces."
+          },
+          "prix_maison_neuf": {
+            "type": "string",
+  
+            "exemple": "Acheter une maison neuve. Au niveau de Montpellier Méditerranée Métropole, les logements neufs (collectifs et individuels) vendus sur Montpellier même ont représenté 63 % du marché du neuf de la métropole. Quant aux ventes de maisons neuves, sur le territoire communal, elles ont représenté 2% du marché du  neuf. Au cours des trois dernières années, dans la ville de Montpellier, la production totale de logements s'est concrétisée par 2.818 habitations mises en chantier en moyenne par an, dont 13% étaient des maisons.Le prix moyen des maisons neuves vendues à Montpellier a été de 280.000 €(*) entre janvier et décembre 2020. La tendance des prix est à une variation annuelle de -13,1%.Au global, sur l'ensemble de la région Occitanie, 11.742 logements neufs construits dans des programmes de promotion immobilière (appartements et maisons dites groupées), ont été vendus. Sur ce total, 7% de ces ventes portaient sur des maisons neuves. Ce prix peut ne pas inclure la valeur du terrain."
+          },
+          "consototale_energie": {
+            "type": "float",
+  
+            "exemple": 12174.29
+          },
+          "Covoit": {
+            "type": "integer",
+  
+            "exemple": 3
+          }
+      }
+    },
+
+
+    "commentaire": {
+        "required": ["ville", "commentaire"],
+        "properties": {
+          "ville": {
+            "type": "string",
+
+             "exemple": "Montpellier"
+          },
+          "commentaire": {
+            "type": "string",
+
+            "exemple": "Super ! "
+          }
+        }
+      },
+      
+      "nom_commune": {
+        "required": ["Eau","consototale_energie", "Covoit","codeInsee", "prix_appart_ancien", "prix_maison_ancien","prix_appart_neuf","prix_maison_neuf"],
+        "properties": {
+          "Eau": {
+            "type": "string",
+  
+             "exemple": "r"
+          },
+          "consototale_energie": {
+            "type": "float",
+  
+            "exemple": 12174.29
+          },
+          "Covoit": {
+            "type": "list",
+  
+            "exemple": []
+          }, 
+          "codeInsee": {
+            "type": "string",
+  
+             "exemple": "34172",
+            "uniqueItems": true
+          },
+          "prix_appart_ancien": {
+            "type": "string",
+  
+            "exemple": "Acheter un appartement ancien à Montpellier. Sur la totalité des ventes de logements anciens de Montpellier Méditerranée Métropole intervenues entre janvier et décembre 2020 67,0% se sont conclues sur Montpellier. Et sur cette part d'activité de la commune, 83% ont concerné des ventes d'appartements. Sur une période de 12 mois (de janvier à décembre 2020), les appartements anciens se sont échangés à un prix moyen de 3.400 € le m², la tendance étant à la hausse de 9,5% en variation annuelle. Mais, les prix diffèrent selon la taille des appartements qui se sont vendus. Les studios se sont échangés à un prix moyen proche de 3.700 € le m². Leur prix a eu tendance à s'accroître de 7,7% en variation annuelle.Le prix moyen des appartements de 2 pièces s'est établi autour de 3.600 € le m², leur évolution étant à la hausse de 10,1% sur un an. Les appartements récents ou anciens de 3 pièces se vendent aux alentours de 3.100 € au m² en moyenne, et leur prix a augmenté de 4,5% sur un an.Le prix moyen des 4 pièces ressort à environ 3.100 € du m².Quant aux grands appartements de 5 pièces ou plus, leurs prix moyens sont plutôt compris entre 3.100 € et 3.800 € au m²."
+          },
+          "prix_maison_ancien": {
+              "type": "string",
+    
+              "exemple": "Acheter une maison ancienne. Sur la commune, le nombre de maisons récentes et anciennes vendues a représenté 17% du total des transactions dans l’ancien. Sur le marché de l'ancien de Montpellier, les maisons récentes ou anciennes se sont échangées en moyenne 400.000 € entre janvier et décembre 2020, et leur prix a progressé de 4,1% sur un an. Des maisons de 4 pièces ou moins se vendent à un prix moyen de l'ordre de 330.000 €. Ce prix a eu tendance à croître de 9,6% par rapport à l'année passée. Pour les maisons de 5 pièces, le prix moyen avoisine 420.000 € sur la période et affiche une variation annuelle en hausse de 6,9% depuis un an. Les prix moyens des maisons individuelles plus grandes, de 6 pièces ou plus, s'échelonnent entre 500.000 € à 610.000 €. Et ces prix ont eu tendance à se stabiliser."
+            },
+            "prix_appart_neuf": {
+              "type": "string",
+    
+              "exemple": "Acheter un appartement neuf à Montpellier. Dans la région Occitanie, 11.742 logements neufs ont été vendus dans des programmes de promotion immobilière au cours de la période janvier 2020-décembre 2020. Au niveau de Montpellier Méditerranée Métropole, les ventes de logements neufs (appartements et maisons) réalisées à Montpellier même représentent 63,1% du marché de la métropole. Au cours des trois dernières années, sur Montpellier 2.818 logements ont été mis en chantier en moyenne par an, dont 87% en habitat collectif (incluant des logements en accession à la propriété, destinés au locatif privé ou au locatif social). Sur la commune, les appartements neufs qui ont été commercialisés représentent 98,4% des ventes totales de logements neufs. Ces appartements neufs se sont vendus en moyenne 4.500 € le m² entre janvier et décembre 2020. Leur prix a eu tendance à augmenter de 4,3% sur un an. Selon la taille de l'appartement, les prix peuvent varier. En moyenne, un appartement s'est ainsi vendu : 4.900 € le m² pour un studio. 4.700 € le m² pour un deux pièces. 4.000 € le m² pour un trois pièces."
+            },
+            "prix_maison_neuf": {
+              "type": "string",
+    
+              "exemple": "Acheter une maison neuve. Au niveau de Montpellier Méditerranée Métropole, les logements neufs (collectifs et individuels) vendus sur Montpellier même ont représenté 63 % du marché du neuf de la métropole. Quant aux ventes de maisons neuves, sur le territoire communal, elles ont représenté 2% du marché du  neuf. Au cours des trois dernières années, dans la ville de Montpellier, la production totale de logements s'est concrétisée par 2.818 habitations mises en chantier en moyenne par an, dont 13% étaient des maisons.Le prix moyen des maisons neuves vendues à Montpellier a été de 280.000 €(*) entre janvier et décembre 2020. La tendance des prix est à une variation annuelle de -13,1%.Au global, sur l'ensemble de la région Occitanie, 11.742 logements neufs construits dans des programmes de promotion immobilière (appartements et maisons dites groupées), ont été vendus. Sur ce total, 7% de ces ventes portaient sur des maisons neuves. Ce prix peut ne pas inclure la valeur du terrain."
+            }
+        }
+      }
+}
+}
