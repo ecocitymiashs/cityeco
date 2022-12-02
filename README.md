@@ -160,6 +160,10 @@ Pour améliorer notre API nous avons comme objectif de rajouter sur la carte les
 
 Bien évidemment nous pourrions améliorer notre interface utilisateur pour la rendre plus ergonomique ainsi que le temps de traitement de chaque requête.
 
-GitHub: 
+## GitHub: 
+
+projet : https://github.com/Laaaura34/open_data
+
+Changement de GIT pour déploiement et maj dont autres groupes 
 
 déploiement : https://github.com/ecocitymiashs/cityeco

@@ -28,7 +28,7 @@
         "summary": "Affiche les données de la ville sélectionnée par l'utilisateur dans la barre de recherche.",
         "responses": {
           "200": {
-            "description": "Permet d'effectuer une recherche grâce à un formulaire pour récupérer et afficher des informations sur une ville. On affiche le code insee, le prix des maisons et des appartements anciens et neufs, le nom de la commune, la consommation énergétique annuelle ainsi que le nombre d'aires de covoiturage.",
+            "description": "Permet d'effectuer une recherche grâce à un formulaire pour récupérer et afficher des informations sur une ville. On affiche le code insee, le prix des maisons et des appartements anciens et neufs, le nom de la commune, la consommation énergétique annuelle ainsi que le nombre d'aires de covoiturage, score internet du groupe opendatamiahs.",
             "schema": {
               "$ref": "#/definitions/ville-eco"
             }
@@ -70,7 +70,7 @@
 
 "definitions": {
     "ville-eco": {
-      "required": ["codeInsee", "prix_appart_ancien", "prix_maison_ancien","prix_appart_neuf","prix_maison_neuf","consototale_energie","Covoit"],
+      "required": ["codeInsee", "prix_appart_ancien", "prix_maison_ancien","prix_appart_neuf","prix_maison_neuf","consototale_energie","Covoit","scoreInternet"],
       "properties": {
         "codeInsee": {
           "type": "string",
@@ -107,6 +107,11 @@
             "type": "integer",
   
             "exemple": 3
+          },
+          "scoreInternet": {
+            "type": "float",
+  
+            "exemple": 0.97
           }
       }
     },
