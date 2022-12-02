@@ -148,6 +148,8 @@ Ce qui va nous renvoyer :
 - Informations sur les appartements neufs : XXXXX
 - Consommation totale d'énergie : XXX
 - Nombre aires covoiturage : XXXX
+- Score internet de l'API openDataMiashs (Autre groupe)
+
 
 
 
