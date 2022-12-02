@@ -8,6 +8,7 @@ IL aura accès à plusieurs informations de la ville telles que :
 - Sa qualité de l'eau
 - Ses aires de covoiturages
 - Son prix moyen au mètre carré
+- Score internet de l'API openDataMiashs
 
 
 ## Critique des bases de données choisies:
@@ -118,7 +119,6 @@ Les chemins :
 -https://villeeco.osc-fr1.scalingo.io/commentaire
 -https://villeeco.osc-fr1.scalingo.io/ville-eco/:nom_commune
 -https://villeeco.osc-fr1.scalingo.io/api-docs
--https://villeeco.osc-fr1.scalingo.io/get/:ville 
 
 
 Nous allons voir comment manipuler l'API et appliquer différents niveaux de filtres aux requêtes.
@@ -148,16 +148,6 @@ Ce qui va nous renvoyer :
 - Informations sur les appartements neufs : XXXXX
 - Consommation totale d'énergie : XXX
 - Nombre aires covoiturage : XXXX
-
-
-Ce que va nous renvoyer l' API du groupe opendatamiashs :
-
--https://villeeco.osc-fr1.scalingo.io/get/:ville 
-
-exemple : 
-
-[{"codeCommune":42168,"nomCommune":"PELUSSIN","scoreInternet":1,"scoreBB":45.410628019323674,"scoreBio":1.9615346153853696e-7,"scoreGaz":0.275}]
-
 
 
 
