@@ -7,24 +7,30 @@ const bodyParser = require("body-parser");
 const http = require('http');
 const httprequest = require('request');
 const removeAccents = require('remove-accents-diacritics');
+const path = require("path");
+const https = require("https");
 //const axios = require('axios');
+
 
 const swaggerUi = require('swagger-ui-express'),
 swaggerDocument = require('./swagger.json');
 
 var fetch = require('node-fetch');
 const { resolve } = require("path");
+const { response } = require("express");
 
 const PORT = process.env.PORT || 300;
 app.use(express.static("public"));
 
+const port = 3000;
 
 
 var server = app.listen(process.env.PORT || 300, function () {
-  var host = server.address().address
-  var port = server.address().port
-  console.log('App listening at http://%s:%s', host, port)
-})
+    var host = server.address().address
+    var port = server.address().port
+    console.log('App listening at http://%s:%s', host, port)
+  })
+  
 
 app.set("view engine", "ejs");
 
@@ -244,10 +250,24 @@ app.post('/ville-eco', function(req, response){
     })
 })
 
+
+app.get("/get/:ville", function (req, res) {
+
+    const ville = removeAccents.remove(req.params.ville.toUpperCase())
+    console.log("Nom de la commune saisie :", ville)
+    let url = "https://opendatamiashs.osc-fr1.scalingo.io/get/"+ville;
+    console.log(url)
+        
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      res.send(data)
+    })
+ })
+  
 app.use(
     '/api-docs',
     swaggerUi.serve, 
     swaggerUi.setup(swaggerDocument)
   );
-
 
