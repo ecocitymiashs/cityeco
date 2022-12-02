@@ -99,7 +99,7 @@
             "exemple": "Acheter une maison neuve. Au niveau de Montpellier Méditerranée Métropole, les logements neufs (collectifs et individuels) vendus sur Montpellier même ont représenté 63 % du marché du neuf de la métropole. Quant aux ventes de maisons neuves, sur le territoire communal, elles ont représenté 2% du marché du  neuf. Au cours des trois dernières années, dans la ville de Montpellier, la production totale de logements s'est concrétisée par 2.818 habitations mises en chantier en moyenne par an, dont 13% étaient des maisons.Le prix moyen des maisons neuves vendues à Montpellier a été de 280.000 €(*) entre janvier et décembre 2020. La tendance des prix est à une variation annuelle de -13,1%.Au global, sur l'ensemble de la région Occitanie, 11.742 logements neufs construits dans des programmes de promotion immobilière (appartements et maisons dites groupées), ont été vendus. Sur ce total, 7% de ces ventes portaient sur des maisons neuves. Ce prix peut ne pas inclure la valeur du terrain."
           },
           "consototale_energie": {
-            "type": "float",
+            "type": "int",
   
             "exemple": 12174.29
           },
@@ -109,7 +109,7 @@
             "exemple": 3
           },
           "scoreInternet": {
-            "type": "float",
+            "type": "int",
   
             "exemple": 0.97
           }
@@ -142,7 +142,7 @@
              "exemple": "r"
           },
           "consototale_energie": {
-            "type": "float",
+            "type": "int",
   
             "exemple": 12174.29
           },
