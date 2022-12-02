@@ -153,7 +153,7 @@ Ce qui va nous renvoyer :
 
 ## Source
 
-Inspiration du template html et css : phttps://github.com/rakshitdabral
+Inspiration du template html et css : https://github.com/rakshitdabral
 
 
 ## To be continued
