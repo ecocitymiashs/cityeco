@@ -108,9 +108,18 @@ _Commentaires sur les données de transports en commun:_
 
 ## API
 
-L'API est disponible à l'adresse suivante :
+L'API est disponible à l'adresse suivante : https://ecocity.osc-fr1.scalingo.io
 
-L'API va récolter des données parmi les 4 différentes sources de données ci dessus. Notre API passe par le chemin /covoit.
+L'API va récolter des données parmi les 4 différentes sources de données ci dessus. 
+
+Les chemins : 
+
+-https://villeeco.osc-fr1.scalingo.io/ville-eco
+-https://villeeco.osc-fr1.scalingo.io/commentaire
+-https://villeeco.osc-fr1.scalingo.io/ville-eco/:nom_commune
+-https://villeeco.osc-fr1.scalingo.io/api-docs
+-https://villeeco.osc-fr1.scalingo.io/get/:ville 
+
 
 Nous allons voir comment manipuler l'API et appliquer différents niveaux de filtres aux requêtes.
 
@@ -120,21 +129,36 @@ L'API va nous renvoyer pour chaque ville sa consommation électrique annuelle, s
 
 Nous avons un filtre applicable à notre disposition pour la sélection des données qui est le code Insee :
 
--   code_insee : applique un filtre sur les communes souhaités, pour obtenir plusieurs communes il faut les séparer par une virgule
 
 ### Exemple :
 
-Je souhaite récolter les données sur la commune de Montpellier (34000):
+Je souhaite récolter les données écologiques sur la commune de Montpellier (34000):
 
-/covoit?code_insee='34000'
+je vais à l'adresse :
+-https://villeeco.osc-fr1.scalingo.io/ville-eco
+
+puis je tape Montpellier dans la barre de recherche. 
 
 Ce qui va nous renvoyer :
 
-Une page HTML contenant une carte avec Montpellier en son milieu et ses aires de covoiturages indiqués par des points rouges (?) :
 
-- Consommation électrique annuelle : XXXXXX
-- Qualité de l'eau :  XXXXXX
-- Prix moyen au mètre carré : XXXXX
+- Informations sur les maisons neuves: XXXXXX
+- Informations sur les appartements anciens :  XXXXXX
+- Informations sur les maisons anciennes: XXXXX
+- Informations sur les appartements neufs : XXXXX
+- Consommation totale d'énergie : XXX
+- Nombre aires covoiturage : XXXX
+
+
+Ce que va nous renvoyer l' API du groupe opendatamiashs :
+
+-https://villeeco.osc-fr1.scalingo.io/get/:ville 
+
+exemple : 
+
+[{"codeCommune":42168,"nomCommune":"PELUSSIN","scoreInternet":1,"scoreBB":45.410628019323674,"scoreBio":1.9615346153853696e-7,"scoreGaz":0.275}]
+
+
 
 
 
